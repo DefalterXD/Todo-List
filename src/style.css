@@ -117,5 +117,15 @@ body {
         padding: 0 0.2em;
     }
 
+    & .add__project {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: none;
+        background-color: transparent;
+        justify-self: end;
+        grid-row: 2 / 3;
+    }
+
 }
 
