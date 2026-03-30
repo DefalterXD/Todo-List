@@ -50,7 +50,7 @@ body {
         display: grid;
         gap: 8px;
     }
-    
+
     & ul:not(.main) {
         border-bottom: 1px solid var(--accent-color);
         padding-bottom: 1em;
@@ -145,5 +145,34 @@ body {
         color: var(--marker-color, #000);
     }
 
+
+}
+
+.urgent {
+    color: var(--urgent-color);
+    background-color: hsl(from var(--urgent-color) h s calc(l + 20));
+    padding: 0 0.8em;
+    border-radius: 12px;
+}
+
+.important {
+    color: var(--important-color);
+    background-color: hsl(from var(--important-color) h s calc(l + 20));
+    padding: 0 0.8em;
+    border-radius: 12px;
+}
+
+.lowPriority {
+    color: var(--low-priority-color);
+    background-color: hsl(from var(--low-priority-color) h s calc(l + 20));
+    padding: 0 0.8em;
+    border-radius: 12px;
+}
+
+.done {
+    color: var(--done-color);
+    background-color: hsl(from var(--done-color) h s calc(l + 20));
+    padding: 0 0.8em;
+    border-radius: 12px;
 }
 
