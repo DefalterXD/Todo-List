@@ -15,6 +15,55 @@
 </head>
 
 <body>
-    
+    <header class="header__container">
+        <nav class="nav__container">
+            <h1 class="header__title">Todo-List</h1>
+            <ul class="main">
+                <li class="date inbox"><span class="material-symbols-outlined">inbox</span>Inbox</li>
+                <li class="date today"><span class="material-symbols-outlined">today</span>Today</li>
+                <li class="date upcoming"><span class="material-symbols-outlined">upcoming</span>Upcoming</li>
+                <li class="date checklist"><span class="material-symbols-outlined">checklist</span>Checklist</li>
+            </ul>
+            <ul class="project">
+                <h2 class="project__title">
+                    <p class="add__list">Study<span class="material-symbols-outlined">edit</span></p>
+                    <label class="mark" for="study"><span class="material-symbols-outlined">chevron_right</span></label>
+                </h2>
+                <input type="checkbox" id="study">
+                <button class="add__project">
+                <span class="material-symbols-outlined">add</span>
+                <p class="add__title">New Project</p>
+            </button>
+                <li class="todo">Math</li>
+                <li class="todo">Physics</li>
+                <li class="todo">Computer Science</li>
+                <li class="todo">English</li>
+            </ul>
+            <ul class="project">
+                <h2 class="project__title">
+                    <p class="add__list">Exercise<span class="material-symbols-outlined">edit</span></p>
+                    <label class="mark" for="exercise">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </label>
+                </h2>
+                <input type="checkbox" id="exercise">
+                <button class="add__project">
+                <span class="material-symbols-outlined">add</span>
+                <p class="add__title">New Project</p>
+            </button>
+                <li class="todo">Jogging</li>
+                <li class="todo">Push-ups</li>
+                <li class="todo">Plank</li>
+                <li class="todo">Lifting</li>
+            </ul>
+        </nav>
+        <div class="add__container">
+            <button class="add__folder">
+                <span class="material-symbols-outlined">add</span>
+                <p class="add__title">New Folder</p>
+            </button>
+        </div>
+    </header>
 </body>
+
 </html>
