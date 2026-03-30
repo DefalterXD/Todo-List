@@ -105,5 +105,10 @@ body {
         cursor: pointer;
     }
 
+    &:has(input:checked) li::before {
+        content: '#';
+        margin-right: 12px;
+    }
+
 }
 
