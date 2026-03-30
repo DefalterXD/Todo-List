@@ -11,3 +11,26 @@
     --header-color-background: #fcfaf8;
 }
 
+body {
+    min-height: 100dvh;
+    display: grid;
+    overflow: hidden;
+    grid-template-areas:
+        "header content"
+        "header content"
+        "header content";
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 3fr;
+    font-family: 'Comic Neue', sans-serif;
+
+    & header {
+        grid-area: header;
+        max-width: 25dvw;
+    }
+
+    & #content {
+        grid-area: content;
+        max-width: 80dvw;
+    }
+}
+
