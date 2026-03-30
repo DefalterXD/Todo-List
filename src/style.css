@@ -110,5 +110,12 @@ body {
         margin-right: 12px;
     }
 
+    & .project__title {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 0 0.2em;
+    }
+
 }
 
