@@ -26,6 +26,9 @@ body {
     & header {
         grid-area: header;
         max-width: 25dvw;
+        border-right: 1px solid black;
+        overflow-y: auto;
+        max-height: 100dvh;
         display: grid;
         align-content: space-between;
         background-color: var(--header-color-background);
@@ -183,6 +186,10 @@ body {
 .inbox__container {
     display: grid;
     padding: 2em;
+    gap: 24px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100dvh;
 
     & .add__task {
         position: fixed;
