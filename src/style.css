@@ -58,3 +58,16 @@ body {
 
 }
 
+.main {
+    display: grid;
+    gap: 16px;
+
+    & li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+    }
+
+}
+
