@@ -40,6 +40,27 @@ body {
     }
 }
 
+.add__container {
+    position: sticky;
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--accent-color);
+    min-height: 5dvh;
+    background-color: var(--header-color-background);
+
+    & button {
+        fill: var(--accent-color);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
 .nav__container {
     position: relative;
     display: grid;
