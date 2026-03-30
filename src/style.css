@@ -1,0 +1,13 @@
+:root {
+    --accent-color: #a0a3a5;
+    --search-color-background: #dde0e4;
+    --urgent-color: #f05848;
+    --important-color: #ffd14f;
+    --low-priority-color: #665c9c;
+    --done-color: #4b7944;
+    --select-color-background: #000;
+    --inbox-color: #3e9ef8;
+    --select-color-font: #fff;
+    --header-color-background: #fcfaf8;
+}
+
