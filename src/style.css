@@ -100,9 +100,13 @@ body {
 
     &:has(input:not(:checked))>*:not(label, .project__title) {
         display: none;
+        animation: rotateMenuBackward 0.2s linear forwards;
+        transform-origin: top center;
     }
 
     &:has(input:checked)> :not(label, .project__title) {
+        animation: rotateMenu 0.2s ease-in-out forwards;
+        transform-origin: top center;
         cursor: pointer;
     }
 
@@ -325,3 +329,24 @@ body {
 
 }
 
+@keyframes rotateMenu {
+    from {
+        transform: rotateX(-90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes rotateMenuBackward {
+    from {
+        display: block;
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(-90deg);
+        display: none;
+    }
+}
