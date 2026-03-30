@@ -133,5 +133,17 @@ body {
         position: absolute;
     }
 
+    & .mark {
+        transition: transform 0.2s ease-out;
+    }
+
+    &:has(input:checked) .mark {
+        transform: rotate(90deg);
+    }
+
+    & li::before {
+        color: var(--marker-color, #000);
+    }
+
 }
 
