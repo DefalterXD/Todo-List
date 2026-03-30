@@ -91,3 +91,19 @@ body {
 
 }
 
+.project {
+
+    & input {
+        display: none;
+    }
+
+    &:has(input:not(:checked))>*:not(label, .project__title) {
+        display: none;
+    }
+
+    &:has(input:checked)> :not(label, .project__title) {
+        cursor: pointer;
+    }
+
+}
+
