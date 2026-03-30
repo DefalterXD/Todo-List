@@ -73,5 +73,21 @@ body {
         cursor: pointer;
     }
 
+    & .inbox:not(.selected) span {
+        color: var(--inbox-color);
+    }
+
+    & .today:not(.selected) span {
+        color: var(--low-priority-color);
+    }
+
+    & .upcoming:not(.selected) span {
+        color: var(--important-color);
+    }
+
+    & .checklist:not(.selected) span {
+        color: var(--done-color);
+    }
+
 }
 
