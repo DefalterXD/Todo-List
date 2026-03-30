@@ -1,5 +1,5 @@
 {
-  "name": "webpack-template",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,20 +9,22 @@
     "webpack:init": "touch webpack.common.js webpack.dev.js webpack.prod.js",
     "dev": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "pages:add": "git add dist -f && git commit -m 'Deployment commit'",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DefalterXD/Webpack-Template.git"
+    "url": "git+https://github.com/DefalterXD/Todo-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/DefalterXD/Webpack-Template/issues"
+    "url": "https://github.com/DefalterXD/Todo-List/issues"
   },
-  "homepage": "https://github.com/DefalterXD/Webpack-Template#readme",
+  "homepage": "https://github.com/DefalterXD/Todo-List#readme",
   "devDependencies": {
     "babel-loader": "^10.1.1",
     "css-loader": "^7.1.4",
