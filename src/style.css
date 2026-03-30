@@ -51,6 +51,10 @@ body {
         gap: 8px;
     }
     
+    & ul:not(.main) {
+        border-bottom: 1px solid var(--accent-color);
+        padding-bottom: 1em;
+    }
 
     & .header__title {
         padding-left: 20px;
