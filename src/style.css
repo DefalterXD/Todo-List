@@ -197,5 +197,10 @@ body {
         }
     }
 
+    & .header__meta {
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
 
