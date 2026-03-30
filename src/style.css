@@ -202,5 +202,14 @@ body {
         justify-content: space-between;
     }
 
+    & .header__meta button {
+        background-color: var(--select-color-background);
+        color: var(--select-color-font);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        padding: 0.2em 0.8em;
+        cursor: pointer;
+    }
 }
 
