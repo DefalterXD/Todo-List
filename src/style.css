@@ -92,6 +92,7 @@ body {
 }
 
 .project {
+    position: relative;
 
     & input {
         display: none;
@@ -125,6 +126,11 @@ body {
         background-color: transparent;
         justify-self: end;
         grid-row: 2 / 3;
+    }
+
+
+    & .add__project:has(+li) {
+        position: absolute;
     }
 
 }
