@@ -6,6 +6,10 @@ const createTask = function createTaskObject(title, desc, dateToComplete, priori
     return newTask;   
 };
 
+export const getProjectSrc = function getProjectSrcForCorrespondingProject(projectName, projectId) {
+    Task.projectSrc = projectName;
+    Task.projectSrcId = projectId;
+};
 
 export const addNewTask = function addNewTaskToTheProject(projectToAdd, projectIdToAdd, title, desc, dateToComplete, priority, note, id) {
     let foundedProject;
