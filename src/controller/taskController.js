@@ -58,3 +58,12 @@ export const changeStatus = function changeStatusOfTheTask(taskId, changedTaskSt
     }
 };
 
+export const takeNewNoteInput = function takeNewNoteInputOfTheTask(taskId, newNote) {
+    for (const folder of navMenu) {
+        for (const project of folder.projects) {
+            for (const task of project.tasks) {
+                if (task.id === taskId) task.note = newNote;
+            }
+        }
+    }
+};

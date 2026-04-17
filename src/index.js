@@ -183,3 +183,7 @@ elementDOMForAppend.content.addEventListener('input', (e) => {
     changeStatus(e.target.closest('li').id, e.target.checked);
 });
 
+elementDOMForAppend.content.addEventListener('keyup', (e) => {
+    takeNewNoteInput(e.target.closest('li').id, e.target.value);
+});
+
