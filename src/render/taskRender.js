@@ -50,3 +50,7 @@ export const editCreatedTaskElement = function editCreatedTaskElementFromDOM(tar
 
 }; 
 
+export const removeCreatedTaskElement = function removeCreatedTaskElementFromDOM(targetTaskEl) {
+    const task = findTask(targetTaskEl);
+    task.remove();
+};
