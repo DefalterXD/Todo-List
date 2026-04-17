@@ -60,3 +60,19 @@ export class Project {
     }
 }
 
+export class Task { 
+    static projectSrc;
+    static projectSrcId;
+    static latestTaskElement;
+
+    constructor(title, desc, dateToComplete, priority, note, id) {
+        this.title = title;
+        this.desc = desc;
+        this.dateToComplete = dateToComplete;
+        this.priority = priority;
+        this.note = note;
+        this.id = id;
+        this.status = false;
+    }
+}
+
