@@ -23,3 +23,17 @@ export class Element {
     }
 }
 
+export class Icon {
+    constructor(type) {
+        this.type = type;
+    }
+
+    createElementDOM() {
+        const element = document.createElement(`span`);
+        element.classList.add('material-symbols-outlined');
+        element.textContent = `${this.type}`;
+        
+        return element;
+    }
+}
+
