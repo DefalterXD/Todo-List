@@ -82,6 +82,18 @@ const sendDataToEdit = function sendDataToEditController(e) {
     }
 };
 
+const sendDataToRemove = function sendDataToRemoveController(e) {
+    e.preventDefault();
+    const activatedModal = e.target.closest('dialog');
+    const modalType = activatedModal.id.charAt(0).toUpperCase() + activatedModal.id.slice(1);
+    const currentSelectedProject = document.querySelector('.selected');
+    removeCreatedElement(modalType, latestElementToEdit);
+    if (modalType === 'Folder' && (currentSelectedProject.id === 'Inbox' || currentSelectedProject.id === 'Today' 
+    || currentSelectedProject.id === 'Upcoming' || currentSelectedProject.id === 'Checklist')) {
+        checkSelectedFolder(currentSelectedProject);
+    }
+    activatedModal.close();
+};
 
 const activateModalAdd = function activateModalForAdd(modal) {
     modal.showModal();
