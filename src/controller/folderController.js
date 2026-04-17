@@ -14,3 +14,7 @@ export const editFolder = function editFolderProperties(targetFolder, newTitle) 
     navMenu.find((folder) => folder.id === targetFolder.id).title = newTitle;
 };
 
+export const removeFolder = function removeFolderOfTheMenu(targetFolder) {
+    const folderIndex = navMenu.findIndex((folder) => folder.id === targetFolder.id);
+    navMenu.splice(folderIndex, 1);
+};
