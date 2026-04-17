@@ -187,3 +187,4 @@ elementDOMForAppend.content.addEventListener('keyup', (e) => {
     takeNewNoteInput(e.target.closest('li').id, e.target.value);
 });
 
+initializeDefaultFolder();
