@@ -27,6 +27,14 @@ const checkSrcType = function checkSrcTypeOnAction(src) {
     }
 };
 
+const checkSelectedFolder = function checkSelectedFolderOrMainLinks(selectedList) {
+    if (selectedList.classList.contains('selected') && selectedList.classList.contains('todo')) {
+        let selectedProjectListId = selectedList.id;
+        elementDOMForAppend.content.textContent = '';
+        elementDOMForAppend.content.appendChild(createContentHeader(selectedProjectListId));
+        renderExistingProjectTasks(selectedProjectListId);
+    } 
+};
 
 const sendDataToAdd = function sendDataToAddController(e) {
     e.preventDefault();
@@ -122,6 +130,14 @@ const initializeDefaultFolder = function initializeDefaultFolderWithProjectAndTa
     renderExistingProjectTasks(uniqueId);
     addNewElement('Task', 'Welcome', 'To the Todo List', '2026-01-01', 'urgent', 'You can write notes here...', uniqueId);
 };
+
+headerContainer.addEventListener('click', (e) => {
+    if (e.target.localName !== 'li') return;
+    prev.classList.toggle('selected');
+    e.target.classList.toggle('selected');
+    checkSelectedFolder(e.target);
+    prev = e.target;
+});
 
 
 document.addEventListener('click', (e) => {
