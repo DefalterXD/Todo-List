@@ -12,3 +12,7 @@ export const updateProjects = function updateProjectsAppendingToTheDOM() {
     foundedFolderElement.appendChild(Project.latestProjectElement);
 };
 
+export const updateTasks = function updateTasksAppendingToTheDOM() {
+    const latestSection = document.querySelector('section ul');
+    latestSection.appendChild(Task.latestTaskElement);
+};
