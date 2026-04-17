@@ -1,4 +1,5 @@
 import { Project } from "../render/mediator.js";
+import { navMenu } from "./menuController.js";
 
 const createProject = function createProjectObject(title, color, id) {
     const newProject = new Project(title, color, id);

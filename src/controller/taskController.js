@@ -1,9 +1,11 @@
 import { Task } from "../render/mediator.js";
+import { navMenu } from "./menuController.js";
 
 const createTask = function createTaskObject(title, desc, dateToComplete, priority, note, id) {
     const newTask = new Task(title, desc, dateToComplete, priority, note, id);
     return newTask;   
 };
+
 
 export const addNewTask = function addNewTaskToTheProject(projectToAdd, projectIdToAdd, title, desc, dateToComplete, priority, note, id) {
     let foundedProject;
