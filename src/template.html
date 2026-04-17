@@ -15,212 +15,135 @@
 </head>
 
 <body>
-    <header class="header__container">
-        <nav class="nav__container">
-            <h1 class="header__title">Todo-List</h1>
-            <ul class="main">
-                <li class="date inbox"><span class="material-symbols-outlined">inbox</span>Inbox</li>
-                <li class="date today"><span class="material-symbols-outlined">today</span>Today</li>
-                <li class="date upcoming"><span class="material-symbols-outlined">upcoming</span>Upcoming</li>
-                <li class="date checklist"><span class="material-symbols-outlined">checklist</span>Checklist</li>
-            </ul>
-            <ul class="project">
-                <h2 class="project__title">
-                    <p class="add__list">Study<span class="material-symbols-outlined">edit</span></p>
-                    <label class="mark" for="study"><span class="material-symbols-outlined">chevron_right</span></label>
-                </h2>
-                <input type="checkbox" id="study">
-                <button class="add__project">
-                <span class="material-symbols-outlined">add</span>
-                <p class="add__title">New Project</p>
-            </button>
-                <li class="todo">Math</li>
-                <li class="todo">Physics</li>
-                <li class="todo">Computer Science</li>
-                <li class="todo">English</li>
-            </ul>
-            <ul class="project">
-                <h2 class="project__title">
-                    <p class="add__list">Exercise<span class="material-symbols-outlined">edit</span></p>
-                    <label class="mark" for="exercise">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </label>
-                </h2>
-                <input type="checkbox" id="exercise">
-                <button class="add__project">
-                <span class="material-symbols-outlined">add</span>
-                <p class="add__title">New Project</p>
-            </button>
-                <li class="todo">Jogging</li>
-                <li class="todo">Push-ups</li>
-                <li class="todo">Plank</li>
-                <li class="todo">Lifting</li>
-            </ul>
-        </nav>
-        <div class="add__container">
-            <button class="add__folder">
-                <span class="material-symbols-outlined">add</span>
-                <p class="add__title">New Folder</p>
-            </button>
-        </div>
-    </header>
-    <div id="content">
-        <section class="inbox__container">
-            <h1 class="inbox__title">Inbox</h1>
-             <div class="header__meta">
-                <h1 class="math__title">Math</h1>
-                <button class="project__title">Edit Project</button>
-             </div>
-            <ul class="task__list">
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something<span class="material-symbols-outlined">edit_square</span></h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">26 Wednesday, March 2026</h3>
-                        <p class="task__priority urgent">Urgent</p>
-                    </div>
-                    <div class="note__container">
-                        <textarea name="note" id="note__desc" placeholder="Write your note here..." ></textarea>
-                        <button class="note__save">Save</button>
-                    </div>
-                </li>
-                 <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something<span class="material-symbols-outlined">edit_square</span></h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">27 Thursday, March 2026</h3>
-                        <p class="task__priority important">Important</p>
-                    </div>
-                    <div class="note__container">
-                        <textarea name="note" id="note__desc" placeholder="Write your note here..." ></textarea>
-                        <button class="note__save">Save</button>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something<span class="material-symbols-outlined">edit_square</span></h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, , et dignissimos possimus laboriosam? Magni sed enim </p>
-                    <div class="task__meta">
-                        <h3 class="task__date">28 Friday, March 2026</h3>
-                        <p class="task__priority lowPriority">Low Priority</p>
-                    </div>
-                    <div class="note__container">
-                        <textarea name="note" id="note__desc" placeholder="Write your note here..." ></textarea>
-                        <button class="note__save">Save</button>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something<span class="material-symbols-outlined">edit_square</span></h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">29 Saturday, March 2026</h3>
-                        <p class="task__priority done">Done</p>
-                    </div>
-                    <div class="note__container">
-                        <textarea name="note" id="note__desc" placeholder="Write your note here..." ></textarea>
-                        <button class="note__save">Save</button>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">26 Wednesday, March 2026</h3>
-                        <p class="task__priority urgent">Urgent</p>
-                    </div>
-                </li>
-                 <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">27 Thursday, March 2026</h3>
-                        <p class="task__priority important">Important</p>
-                        <p class="task__priority done">Done</p>                        
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">28 Friday, March 2026</h3>
-                        <p class="task__priority lowPriority">Low Priority</p>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">29 Saturday, March 2026</h3>
-                        <p class="task__priority done">Done</p>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">26 Wednesday, March 2026</h3>
-                        <p class="task__priority urgent">Urgent</p>
-                    </div>
-                </li>
-                 <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">27 Thursday, March 2026</h3>
-                        <p class="task__priority important">Important</p>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">28 Friday, March 2026</h3>
-                        <p class="task__priority lowPriority">Low Priority</p>
-                    </div>
-                </li>
-                <li class="task">
-                    <input type="checkbox" name="task" id="task">
-                    <h2 class="task__title">Do something</h2>
-                    <p class="task__desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias culpa laborum magni soluta fugiat earum architecto atque, enim dolor quos commodi, quam numquam dolorem sequi, totam nobis nulla. Sunt, necessitatibus.
-                    Quas, autem facere veritatis quia vitae porro fuga sunt ipsam eligendi tempore aut. Officia odit deleniti, et dignissimos possimus laboriosam? Magni sed enim corporis possimus sapiente. Repellendus nulla est at?</p>
-                    <div class="task__meta">
-                        <h3 class="task__date">29 Saturday, March 2026</h3>
-                        <p class="task__priority done">Done</p>
-                    </div>
-                </li>
-            </ul>
-            <div class="add__task"><span class="material-symbols-outlined">add</span></div>
-        </section>
-    </div>
-    <dialog id="list">
-        <form action=""></form>
+    <div id="content"></div>
+     <dialog id="folder" class="add">
+        <form action="#">
+            <h1 class="folder__title">Add Folder</h1>
+            <div class="text__field">
+                <label for="folderTitle">Folder Title</label>
+                <input type="text" name="folderTitle" id="folderTitle">
+            </div>
+            <div class="button__container">
+                <button type="submit" class="submit">Add</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
     </dialog>
-    <dialog id="project">
-        <form action=""></form>
+     <dialog id="folder" class="edit">
+        <form action="#">
+            <h1 class="folder__title">Edit Folder</h1>
+            <div class="text__field">
+                <label for="folderTitle">Folder Title</label>
+                <input type="text" name="folderTitle" id="folderTitle">
+            </div>
+            <div class="button__container">
+                <button type="submit" class="edit">Edit</button>
+                <button type="submit" class="remove">Remove</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
     </dialog>
-    <dialog id="task">
-        <form action=""></form>
+    <dialog id="project" class="add">
+        <form action="#">
+            <h1 class="project__title">Add Project</h1>
+            <div class="text__field">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" name="projectTitle" id="projectTitle">
+            </div>
+            <div class="text__field">
+                <label for="markerColor">Marker Color</label>
+                <input type="color" name="markerColor" id="markerColor">
+            </div>
+            <div class="button__container">
+                <button type="submit" class="submit">Add</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
+    </dialog>
+    <dialog id="project" class="edit">
+        <form action="#">
+            <h1 class="project__title">Edit Project</h1>
+            <div class="text__field">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" name="projectTitle" id="projectTitle">
+            </div>
+            <div class="text__field">
+                <label for="markerColor">Marker Color</label>
+                <input type="color" name="markerColor" id="markerColor">
+            </div>
+            <div class="button__container">
+                <button type="submit" class="edit">Edit</button>
+                <button type="submit" class="remove">Remove</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
+    </dialog>
+    <dialog id="task" class="add">
+        <form action="#">
+            <h1 class="task__title">Add Task</h1>
+            <div class="text__field">
+                <label for="projectTitle">Task Title</label>
+                <input type="text" name="projectTitle" id="projectTitle">
+            </div>
+            <div class="text__field">
+                <label for="projectDesc">Task Desc</label>
+                <input type="text" name="projectDesc" id="projectDesc">
+            </div>
+             <div class="text__field">
+                <label for="projectDate">Task Date</label>
+                <input type="date" name="projectDate" id="projectDate">
+            </div>
+            <div class="text__field">
+                <label for="prioritySelect">Priority</label>
+                <select name="prioritySelect" id="prioritySelect">
+                    <option value="urgent">Urgent</option>
+                    <option value="important">Important</option>
+                    <option value="lowPriority">Low Priority</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+              <div class="text__field">
+                <textarea name="note" id="note"></textarea>
+              </div>
+            <div class="button__container">
+                <button type="submit" class="submit">Add</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
+    </dialog>
+    <dialog id="task" class="edit">
+        <form action="#">
+            <h1 class="task__title">Edit Task</h1>
+            <div class="text__field">
+                <label for="projectTitle">Task Title</label>
+                <input type="text" name="projectTitle" id="projectTitle">
+            </div>
+            <div class="text__field">
+                <label for="projectDesc">Task Desc</label>
+                <input type="text" name="projectDesc" id="projectDesc">
+            </div>
+             <div class="text__field">
+                <label for="projectDate">Task Date</label>
+                <input type="date" name="projectDate" id="projectDate">
+            </div>
+            <div class="text__field">
+                <label for="prioritySelect">Priority</label>
+                <select name="prioritySelect" id="prioritySelect">
+                    <option value="urgent">Urgent</option>
+                    <option value="important">Important</option>
+                    <option value="lowPriority">Low Priority</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+              <div class="text__field">
+                <textarea name="note" id="note"></textarea>
+              </div>
+            <div class="button__container">
+                <button type="submit" class="edit">Edit</button>
+                <button type="submit" class="remove">Remove</button>
+            </div>
+            <button type="button" class="close">X</button>
+        </form>
     </dialog>
 </body>
 
