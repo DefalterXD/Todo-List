@@ -109,3 +109,19 @@ export class Today {
     }
 }
 
+export class Upcoming {
+    filterTasks(navMenu) {
+        const currentDate = format(Date.now(), "yyy-MM-dd");
+        const allTasks = [];
+        for (const folder of navMenu) {
+            for (const project of folder.projects) {
+                for (const task of project.tasks) {
+                    if (!task.status && task.dateToComplete !== currentDate) allTasks.push(task);
+                }
+            }
+        }        
+
+        return allTasks;
+    }
+}
+
