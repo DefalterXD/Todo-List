@@ -1,5 +1,9 @@
 import { Element, Icon, Folder } from "./mediator.js";
 
+const findFolder = function findFolderForAction(folderEl) {
+    return [...document.querySelectorAll('ul')].find((folder) => folder.id === folderEl.id);
+};
+
 export const createFolderElement = function createFolderElementForDOM(title, id) {
     const uniqueId = crypto.randomUUID();
     const elFolder = new Element('ul', '', 'project').createElementDOM();
@@ -23,10 +27,11 @@ export const createFolderElement = function createFolderElementForDOM(title, id)
     elLabelFolder.appendChild(elMarkArrow);
     elButtonAddProject.append(elIconAddProject, elTextAddProject);
     Folder.latestFolderElement = elFolder;
-}
+};
 
 export const editCreatedFolderElement = function editCreatedFolderElementFromDOM(targetFolderEl, value) {
     const folder = findFolder(targetFolderEl).querySelector('.project__title .edit__folder');
     folder.firstChild.textContent = value;
-}
+};
+
 
