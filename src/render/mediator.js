@@ -47,3 +47,16 @@ export class Folder {
     }
 }
 
+export class Project {
+    static folderSrc;
+    static folderSrcId;
+    static latestProjectElement;
+
+    constructor(title, color, id) {
+        this.title = title;
+        this.color = color;
+        this.id = id;
+        this.tasks = [];
+    }
+}
+
