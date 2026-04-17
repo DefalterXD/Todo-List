@@ -6,6 +6,10 @@ const createProject = function createProjectObject(title, color, id) {
     return newProject;
 };
 
+export const getFolderSrc = function getFolderSrcForCorrespondingProject(folderName, folderId) {
+    Project.folderSrc = folderName;
+    Project.folderSrcId = folderId;
+};
 
 export const addNewProject = function addNewProjectToTheFolder(folderToAdd, folderIdToAdd, title, color, id) {
     const foundedFolder = navMenu.find((folder) => folder.title === folderToAdd && folder.id === folderIdToAdd);
