@@ -156,8 +156,12 @@ ul li.selected::before {
     & .project__title {
         display: flex;
         justify-content: space-between;
-        gap: 8px;
         padding: 0 0.2em;
+        text-transform: capitalize;
+
+        & .edit__folder span {
+            cursor: pointer;
+        }
     }
 
     & .add__project {
@@ -173,6 +177,7 @@ ul li.selected::before {
 
     & .add__project:has(+li) {
         position: absolute;
+        z-index: 1;
     }
 
     & .add__project:has(+li:first-of-type.selected) {
@@ -193,7 +198,9 @@ ul li.selected::before {
         color: var(--marker-color, #000);
     }
 
-
+    .todo {
+        text-transform: capitalize;
+    }
 }
 
 .urgent {
@@ -248,13 +255,18 @@ ul li.selected::before {
         cursor: pointer;
 
         & span {
+            display: grid;
+            place-content: center;
             color: var(--header-color-background);
+            width: 50px;
+            height: 50px;
         }
     }
 
     & .header__meta {
         display: flex;
         justify-content: space-between;
+        text-transform: capitalize;
     }
 
     & .header__meta button {
