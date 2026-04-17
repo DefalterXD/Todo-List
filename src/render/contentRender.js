@@ -2,6 +2,12 @@ import { Element, Icon, Task, Inbox, Today, Upcoming, Checklist } from "./mediat
 import { navMenu } from "../controller/menuController.js";
 import { createTaskElement } from "../render/taskRender.js";
 
+const creatingObjectOnType = {
+    'Inbox': Inbox,
+    'Today': Today,
+    'Upcoming': Upcoming,
+    'Checklist': Checklist
+};
 
 const findSelectedProject = function findSelectedProjectFromId(selectedProject) {
     for (const folder of navMenu) {
@@ -10,6 +16,7 @@ const findSelectedProject = function findSelectedProjectFromId(selectedProject) 
         }
     }
 };
+
 export const createContentHeader = function createContentHeaderOfTheProject(selectedProject) {
     const project = findSelectedProject(selectedProject);
     const elSection = new Element('section', '', 'section').createElementDOM();
@@ -38,3 +45,20 @@ export const renderExistingProjectTasks = function renderExistingProjectTasks(se
     }
 };
 
+export const createMainHeader = function createMainHeaderOfTheMenu(selectedMain) {
+    const elSection = new Element('section', '', `${selectedMain}`, 'section').createElementDOM();
+    const headerMainTitle = new Element('h1', `${selectedMain}`, `${selectedMain}__title`).createElementDOM();
+    const ulTaskList = new Element('ul', '', 'task__list').createElementDOM();
+    elSection.append(headerMainTitle, ulTaskList);
+    return elSection;
+};
+
+export const renderExistingMainTasks = function renderExistingTasksOnMain(selectedMain) {
+    const mainElement = new creatingObjectOnType[selectedMain];
+    const tasksArray = mainElement.filterTasks(navMenu);
+    const latestSection = document.querySelector('section ul');
+    for (const task of tasksArray) {
+        createTaskElement(task.title, task.desc, task.dateToComplete, task.priority, task.note, task.id, task.status);
+        latestSection.appendChild(Task.latestTaskElement);
+    }
+};
