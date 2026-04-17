@@ -76,3 +76,18 @@ export class Task {
     }
 }
 
+export class Inbox {
+    filterTasks(navMenu) {
+        const allTasks = [];
+        for (const folder of navMenu) {
+            for (const project of folder.projects) {
+                for (const task of project.tasks) {
+                    if (!task.status) allTasks.push(task);
+                }
+            }
+        }        
+
+        return allTasks;
+    }
+}
+
