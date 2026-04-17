@@ -31,6 +31,12 @@ const folderMethods = {
     updateEditedCreatedElement(targetFolder, value) {
         editCreatedFolderElement(targetFolder, ...value);
     },
+    removeObject(targetFolder) {
+        removeFolder(targetFolder);
+    },
+    removeCreatedElement(targetFolder) {
+        removeCreatedFolderElement(targetFolder);
+    }
 };
 
 Object.assign(Folder.prototype, folderMethods);
@@ -51,6 +57,12 @@ const projectMethods = {
     updateEditedCreatedElement(targetProject, value) {
         editCreatedProjectElement(targetProject, ...value);
     },
+    removeObject(targetFolder) {
+        removeProject(targetFolder);
+    },
+    removeCreatedElement(targetFolder) {
+        removeCreatedProjectElement(targetFolder);
+    }
 };
 
 Object.assign(Project.prototype, projectMethods);
@@ -71,6 +83,12 @@ const taskMethods = {
     updateEditedCreatedElement(targetTask, value) {
         editCreatedTaskElement(targetTask, ...value);
     },
+    removeObject(targetFolder) {
+        removeTask(targetFolder);
+    },
+    removeCreatedElement(targetFolder) {
+        removeCreatedTaskElement(targetFolder);
+    }
 };
 
 Object.assign(Task.prototype, taskMethods);
@@ -86,5 +104,11 @@ export const editCreatedElement = function editCreatedElementDependingWithInput(
     const newElement = new creatingObjectOnType[elType];
     newElement.editObject(targetElement, values);
     newElement.updateEditedCreatedElement(targetElement, values);
+};
+
+export const removeCreatedElement = function removeCreatedElementOnType(elType, targetElement) {
+    const newElement = new creatingObjectOnType[elType];
+    newElement.removeObject(targetElement);
+    newElement.removeCreatedElement(targetElement);
 };
 
