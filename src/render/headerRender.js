@@ -1,4 +1,5 @@
 import { Element, Icon } from "./mediator.js";
+import { ulMain } from "./mainRender.js";
 
 export const headerContainer = (function createHeaderContainerDOMForNavigation() {
     const header = new Element('header', '', 'header__container').createElementDOM();
@@ -19,7 +20,7 @@ const headerTitle = (function createHeaderTitleDOMForNav() {
 })();
 
 const appendMainElementsIntoHeader = function appendMainElementsIntoHeaderContainerForInitialization() {
-    navContainer.append(headerTitle);
+    navContainer.append(headerTitle, ulMain);
     headerContainer.appendChild(navContainer);
 };
 
