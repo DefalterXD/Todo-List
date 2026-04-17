@@ -25,3 +25,8 @@ export const createFolderElement = function createFolderElementForDOM(title, id)
     Folder.latestFolderElement = elFolder;
 }
 
+export const editCreatedFolderElement = function editCreatedFolderElementFromDOM(targetFolderEl, value) {
+    const folder = findFolder(targetFolderEl).querySelector('.project__title .edit__folder');
+    folder.firstChild.textContent = value;
+}
+
