@@ -18,3 +18,21 @@ export const addNewTask = function addNewTaskToTheProject(projectToAdd, projectI
     foundedProject.tasks.push(createTask(title, desc, dateToComplete, priority, note, id));
 };
 
+export const editTask = function editTaskProperties(targetTask, newTitle, newDesc, newDateToComplete, newPriority, newNote) {
+    let foundedTask;
+
+    for (const folder of navMenu) {
+        for (const project of folder.projects) {
+            for (const task of project.tasks) {
+                if (task.id === targetTask.id) foundedTask = task;
+            }
+        }
+    }
+
+    foundedTask.title = newTitle;
+    foundedTask.desc = newDesc;
+    foundedTask.dateToComplete = newDateToComplete;
+    foundedTask.priority = newPriority;
+    foundedTask.note = newNote;
+};
+
