@@ -408,7 +408,91 @@ ul li.selected::before {
             cursor: pointer;
         }
     }
+}
 
+dialog {
+    border-radius: 12px;
+
+    & form {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        min-width: 25dvw;
+    }
+
+    & .text__field {
+        display: grid;
+
+        & input {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--select-color-background);
+            padding: 0.2em 0.4em;
+        }
+
+        & input[type="date"] {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--select-color-background);
+            padding: 0.2em 0.4em;
+        }
+
+        & input[type="color"] {
+            width: 15%;
+            background-color: #fff;
+        }
+
+        & select {
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--select-color-background);
+            padding: 0.2em 0.4em;
+        }
+    }
+
+    & .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: grid;
+        place-content: center;
+        background-color: var(--select-color-background);
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: none;
+        color: var(--search-color-background);
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    & .submit,
+    & .edit {
+        background-color: var(--select-color-background);
+        color: var(--select-color-font);
+        border-radius: 4px;
+        font-size: 1.1rem;
+        border: none;
+        padding: 0.2em 1em;
+        cursor: pointer;
+    }
+
+    & .remove {
+        background-color: var(--urgent-color);
+        color: var(--select-color-font);
+        border-radius: 4px;
+        font-size: 1.1rem;
+        border: none;
+        padding: 0.2em 1em;
+        cursor: pointer;
+    }
+
+    & textarea {
+        resize: none;
+        border-radius: 8px;
+        border: 1px solid var(--select-color-background);
+        padding: 0.2em 0.4em;
+    }
 }
 
 @keyframes rotateMenu {
