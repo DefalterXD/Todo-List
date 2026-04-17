@@ -1,4 +1,9 @@
 import { Element, Icon, Task } from "./mediator.js";
+import { format } from "date-fns";
+
+const findTask = function findTaskForAction(taskName) {
+    return [...document.querySelectorAll(`section li`)].find((task) => task.id === taskName.id);
+};
 
 export const createTaskElement = function createTaskElementForDOM(title, desc, dateToComplete, priority, note, id, status = false) {
     const elList = new Element('li', '', 'task').createElementDOM();
@@ -31,4 +36,17 @@ export const createTaskElement = function createTaskElementForDOM(title, desc, d
     elList.append(checkMark, taskTitle, taskDesc, taskMetaInfo, taskNoteContainer);
     Task.latestTaskElement = elList;
 };
+
+export const editCreatedTaskElement = function editCreatedTaskElementFromDOM(targetTaskEl, title, desc, dateToComplete, priority, note) {
+    const task = findTask(targetTaskEl);
+    task.querySelector('.task__title').firstChild.textContent = title;
+    task.querySelector('.task__desc').textContent = desc;
+    task.querySelector('.task__date').textContent = format(dateToComplete, "do MMMM y");
+    
+    task.querySelector('.task__priority').textContent = priority;
+    task.querySelector('.task__priority').classList.replace(task.querySelector('.task__priority').classList[1], priority);
+
+    task.querySelector('.note__container textarea').value = note;
+
+}; 
 
