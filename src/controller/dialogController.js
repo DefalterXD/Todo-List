@@ -25,6 +25,12 @@ const folderMethods = {
     updateElements() {
         updateFolders();
     },
+    editObject(targetFolder, value) {
+        editFolder(targetFolder, ...value);
+    },
+    updateEditedCreatedElement(targetFolder, value) {
+        editCreatedFolderElement(targetFolder, ...value);
+    },
 };
 
 Object.assign(Folder.prototype, folderMethods);
@@ -38,6 +44,12 @@ const projectMethods = {
     },
     updateElements() {
         updateProjects();
+    },
+    editObject(targetProject, value) {
+        editProject(targetProject, ...value);
+    },
+    updateEditedCreatedElement(targetProject, value) {
+        editCreatedProjectElement(targetProject, ...value);
     },
 };
 
@@ -56,6 +68,9 @@ const taskMethods = {
     editObject(targetTask, value) {
         editTask(targetTask, ...value);
     },
+    updateEditedCreatedElement(targetTask, value) {
+        editCreatedTaskElement(targetTask, ...value);
+    },
 };
 
 Object.assign(Task.prototype, taskMethods);
@@ -65,5 +80,11 @@ export const addNewElement = function addNewElementDependingOnDialogType(elType,
     newElement.createObject(values);
     newElement.createElementDOM(values);
     newElement.updateElements();
+};
+
+export const editCreatedElement = function editCreatedElementDependingWithInput(elType, targetElement, ...values) {
+    const newElement = new creatingObjectOnType[elType];
+    newElement.editObject(targetElement, values);
+    newElement.updateEditedCreatedElement(targetElement, values);
 };
 
