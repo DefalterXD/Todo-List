@@ -179,3 +179,7 @@ elementDOMForAppend.content.addEventListener('click', (e) => {
     note.style.display = (note.style.display === 'none' || note.style.display === '') ? 'block' : 'none';
 });
 
+elementDOMForAppend.content.addEventListener('input', (e) => {
+    changeStatus(e.target.closest('li').id, e.target.checked);
+});
+

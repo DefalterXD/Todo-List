@@ -48,3 +48,13 @@ export const removeTask = function removeTaskFromTheProject(targetTask) {
     }
 };
 
+export const changeStatus = function changeStatusOfTheTask(taskId, changedTaskStatus) {
+    for (const folder of navMenu) {
+        for (const project of folder.projects) {
+            for (const task of project.tasks) {
+                if (task.id === taskId) task.status = changedTaskStatus;
+            }
+        }
+    }
+};
+
