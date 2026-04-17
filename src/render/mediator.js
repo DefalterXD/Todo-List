@@ -3,3 +3,23 @@ export const elementDOMForAppend = {
     content: document.querySelector('#content')
 };
 
+export class Element {
+    constructor(element, elValue, ...elClass) {
+        this.element = element;
+        this.elValue = elValue;
+        this.elClass = elClass;
+    }
+
+    createElementDOM() {
+        const element = document.createElement(`${this.element}`);
+        element.classList.add(...this.elClass);
+        element.textContent = `${this.elValue}`;
+
+        return element;
+    }
+
+    static prependElementDOM(parent, child) {
+        parent.prepend(child);
+    }
+}
+
