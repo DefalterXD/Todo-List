@@ -36,3 +36,11 @@ export const editTask = function editTaskProperties(targetTask, newTitle, newDes
     foundedTask.note = newNote;
 };
 
+export const removeTask = function removeTaskFromTheProject(targetTask) {
+    for (const folder of navMenu) {
+        for (const project of folder.projects) {
+            project.tasks = project.tasks.filter((task) => task.id !== targetTask.id);
+        }
+    }
+};
+
