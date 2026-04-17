@@ -37,3 +37,13 @@ export class Icon {
     }
 }
 
+export class Folder {
+    static latestFolderElement;
+
+    constructor(title, id) {
+        this.title = title;
+        this.id = id;
+        this.projects = [];
+    }
+}
+
