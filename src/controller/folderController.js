@@ -10,3 +10,7 @@ export const addNewFolder = function addNewFolderToTheMenu(title, id) {
     navMenu.push(createFolder(title, id));
 };
 
+export const editFolder = function editFolderProperties(targetFolder, newTitle) {
+    navMenu.find((folder) => folder.id === targetFolder.id).title = newTitle;
+};
+
