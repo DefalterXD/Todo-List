@@ -33,7 +33,12 @@ const checkSelectedFolder = function checkSelectedFolderOrMainLinks(selectedList
         elementDOMForAppend.content.textContent = '';
         elementDOMForAppend.content.appendChild(createContentHeader(selectedProjectListId));
         renderExistingProjectTasks(selectedProjectListId);
-    } 
+    } else {
+        let selectedProjectListId = selectedList.id;
+        elementDOMForAppend.content.textContent = '';
+        elementDOMForAppend.content.appendChild(createMainHeader(selectedProjectListId));
+        renderExistingMainTasks(selectedProjectListId);
+    }
 };
 
 const sendDataToAdd = function sendDataToAddController(e) {
