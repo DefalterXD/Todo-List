@@ -50,6 +50,25 @@ const sendDataToAdd = function sendDataToAddController(e) {
     }
 };
 
+const sendDataToEdit = function sendDataToEditController(e) {
+    e.preventDefault();
+    const activatedModal = e.target.closest('dialog');
+    const modalType = activatedModal.id.charAt(0).toUpperCase() + activatedModal.id.slice(1);
+    const allFieldsValue = [...e.target.closest('form').querySelectorAll('input')].map((input) => input.value);
+
+    const allFieldsValueWithoutSpace = allFieldsValue.map((input) => input.trim());
+
+    // IF either of the fields exist include them into the array
+    if (e.target.closest('form').querySelector('select')) allFieldsValueWithoutSpace.push(e.target.closest('form').querySelector('select').value);
+    if (e.target.closest('form').querySelector('textarea')) allFieldsValueWithoutSpace.push(e.target.closest('form').querySelector('textarea').value);
+
+    // IF the title, desc and date isn't empty then proceed with the form
+    if (allFieldsValueWithoutSpace[0] !== '' && allFieldsValueWithoutSpace[1] !== '' && allFieldsValueWithoutSpace[2] !== '') {
+        editCreatedElement(modalType, latestElementToEdit, ...allFieldsValueWithoutSpace);
+        activatedModal.close();
+    }
+};
+
 
 const activateModalAdd = function activateModalForAdd(modal) {
     modal.showModal();
@@ -65,6 +84,28 @@ const activateModalAdd = function activateModalForAdd(modal) {
             buttonSubmit.removeEventListener('click', sendDataToAdd);
             modal.close();
         });
+    }
+};
+
+const activateModalEdit = function activateModalForEditOrDelete(modal) {
+    modal.showModal();
+
+    const buttonEdit = modal.querySelector('.edit');
+    if (buttonEdit !== null) {
+        buttonEdit.addEventListener('click', sendDataToEdit);
+    }
+
+    const buttonClose = modal.querySelector('.close');
+    if (buttonClose !== null) {
+        buttonClose.addEventListener('click', () => {
+            buttonEdit.removeEventListener('click', sendDataToEdit);
+            modal.close();
+        });
+    }
+
+    const buttonRemove = modal.querySelector('.remove');
+    if (buttonRemove !== null) {
+        buttonRemove.addEventListener('click', sendDataToRemove);
     }
 };
 
