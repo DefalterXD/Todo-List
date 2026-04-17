@@ -7,3 +7,8 @@ export const updateFolders = function updateFoldersAppendingToTheDOM() {
     navContainer.appendChild(Folder.latestFolderElement);
 };
 
+export const updateProjects = function updateProjectsAppendingToTheDOM() {
+    const foundedFolderElement = findFolder(Project.folderSrc, Project.folderSrcId).closest('ul');
+    foundedFolderElement.appendChild(Project.latestProjectElement);
+};
+
