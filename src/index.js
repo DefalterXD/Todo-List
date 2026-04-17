@@ -173,3 +173,9 @@ document.addEventListener('click', (e) => {
     }
 });
 
+elementDOMForAppend.content.addEventListener('click', (e) => {
+    if (e.target.localName !== 'li') return;
+    const note = e.target.querySelector('.note__container');
+    note.style.display = (note.style.display === 'none' || note.style.display === '') ? 'block' : 'none';
+});
+
