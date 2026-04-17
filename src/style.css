@@ -187,10 +187,16 @@ ul li.selected::before {
     }
 
     & .mark {
+        flex: 1;
+        text-align: end;
+        cursor: pointer;
+    }
+
+    & .mark>span {
         transition: transform 0.2s ease-out;
     }
 
-    &:has(input:checked) .mark {
+    &:has(input:checked) .mark>span {
         transform: rotate(90deg);
     }
 
@@ -286,9 +292,8 @@ ul li.selected::before {
     padding-left: 0;
     gap: 32px;
 
-
-
     & .task {
+        position: relative;
         display: grid;
         grid-template-columns: 5% 2fr;
         grid-template-rows: 1fr;
@@ -362,6 +367,7 @@ ul li.selected::before {
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 1.1rem;
+        max-width: max-content;
     }
 
     & .task .task__meta {
