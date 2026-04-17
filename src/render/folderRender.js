@@ -4,6 +4,14 @@ const findFolder = function findFolderForAction(folderEl) {
     return [...document.querySelectorAll('ul')].find((folder) => folder.id === folderEl.id);
 };
 
+const checkIfRemovedFolderInContent = function checkIfRemovedFolderInContentToRemoveIt(folderEl) {
+    const deletedProjects = [...folderEl.querySelectorAll('li')];
+    const currentContentSection = document.querySelector('section');
+    for (const project of deletedProjects) {
+        if (currentContentSection.id === project.id) currentContentSection.remove();
+    }
+};
+
 export const createFolderElement = function createFolderElementForDOM(title, id) {
     const uniqueId = crypto.randomUUID();
     const elFolder = new Element('ul', '', 'project').createElementDOM();
@@ -34,4 +42,9 @@ export const editCreatedFolderElement = function editCreatedFolderElementFromDOM
     folder.firstChild.textContent = value;
 };
 
+export const removeCreatedFolderElement = function removeCreatedFolderElementFromDOM(targetFolderEl) {
+    const folder = findFolder(targetFolderEl).closest('ul');
+    folder.remove();
 
+    checkIfRemovedFolderInContent(targetFolderEl);
+};
