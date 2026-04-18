@@ -60,6 +60,7 @@ const sendDataToAdd = function sendDataToAddController(e) {
         const uniqueId = crypto.randomUUID();
         allFieldsValueWithoutSpace.push(uniqueId);
         addNewElement(modalType, ...allFieldsValueWithoutSpace);
+        getAllFolders();
         activatedModal.close();
     }
 };
@@ -79,6 +80,7 @@ const sendDataToEdit = function sendDataToEditController(e) {
     // IF the title, desc and date isn't empty then proceed with the form
     if (allFieldsValueWithoutSpace[0] !== '' && allFieldsValueWithoutSpace[1] !== '' && allFieldsValueWithoutSpace[2] !== '') {
         editCreatedElement(modalType, latestElementToEdit, ...allFieldsValueWithoutSpace);
+        getAllFolders();
         activatedModal.close();
     }
 };
@@ -93,6 +95,7 @@ const sendDataToRemove = function sendDataToRemoveController(e) {
     || currentSelectedProject.id === 'Upcoming' || currentSelectedProject.id === 'Checklist')) {
         checkSelectedFolder(currentSelectedProject);
     }
+    getAllFolders();
     activatedModal.close();
 };
 
@@ -135,26 +138,28 @@ const activateModalEdit = function activateModalForEditOrDelete(modal) {
     }
 };
 
-const initializeDefaultFolder = function initializeDefaultFolderWithProjectAndTask() {
-    const uniqueId = crypto.randomUUID();
-    addNewElement('Folder', 'Welcome', uniqueId);
-    getFolderSrc('Welcome', uniqueId);
-    addNewElement('Project', 'Welcome Project', '#000', uniqueId);
-    getProjectSrc('Welcome Project', uniqueId);
-    document.getElementById(`${uniqueId}`).querySelector('input').checked = true;
-    document.getElementById(`${uniqueId}`).querySelector('li').classList.add('selected');
-    prev = document.getElementById(`${uniqueId}`).querySelector('li');
-    elementDOMForAppend.content.appendChild(createContentHeader(uniqueId));
-    renderExistingProjectTasks(uniqueId);
-    addNewElement('Task', 'Welcome', 'To the Todo List', '2026-01-01', 'urgent', 'You can write notes here...', uniqueId);
+export const initializeDefaultFolder = function initializeDefaultFolderWithProjectAndTask() {
+    const uniqueFolderId = crypto.randomUUID();
+    const uniqueProjectId = crypto.randomUUID();
+    const uniqueTaskId = crypto.randomUUID();
+    addNewElement('Folder', 'Welcome', uniqueFolderId);
+    getFolderSrc('Welcome', uniqueFolderId);
+    addNewElement('Project', 'Welcome Project', '#000', uniqueProjectId);
+    getProjectSrc('Welcome Project', uniqueProjectId);
+    document.getElementById(`${uniqueFolderId}`).querySelector('input').checked = true;
+    document.getElementById(`${uniqueFolderId}`).querySelector('li').classList.add('selected');
+    prev.previousSelected = document.getElementById(`${uniqueFolderId}`).querySelector('li');
+    elementDOMForAppend.content.appendChild(createContentHeader(uniqueProjectId));
+    addNewElement('Task', 'Welcome', 'To the Todo List', '2026-01-01', 'urgent', 'You can write notes here...', uniqueTaskId);
 };
 
 headerContainer.addEventListener('click', (e) => {
     if (e.target.localName !== 'li') return;
-    prev.classList.toggle('selected');
+    prev.previousSelected.classList.toggle('selected');
     e.target.classList.toggle('selected');
     checkSelectedFolder(e.target);
-    prev = e.target;
+    getAllFolders();
+    prev.previousSelected = e.target;
 });
 
 
@@ -182,10 +187,11 @@ elementDOMForAppend.content.addEventListener('click', (e) => {
 
 elementDOMForAppend.content.addEventListener('input', (e) => {
     changeStatus(e.target.closest('li').id, e.target.checked);
+    getAllFolders();
 });
 
 elementDOMForAppend.content.addEventListener('keyup', (e) => {
     takeNewNoteInput(e.target.closest('li').id, e.target.value);
+    getAllFolders();
 });
 
-initializeDefaultFolder();
