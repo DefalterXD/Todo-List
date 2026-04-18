@@ -23,6 +23,7 @@ And lastly after I make sure my website is working I refactor my code a little b
     <li>Using 'Single-responsibility' rule from SOLID(and other rules in my current best abilities)</li>
     <li>Read documentation of new installed package 'date-fns' and implement it</li>
     <li>Make a use of local storage to handle my page when reload</li>
+    <li>Manipulate with JSON methods to use for local storage</li>
     <li>And add a little bit of animation for dynamic</li>
 </ul>
 
