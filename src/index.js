@@ -6,9 +6,10 @@ import { getProjectSrc, changeStatus, takeNewNoteInput } from "./controller/task
 import { headerContainer } from "./render/headerRender.js";
 import { elementDOMForAppend } from "./render/mediator.js";
 import { createContentHeader, renderExistingProjectTasks, createMainHeader, renderExistingMainTasks } from "./render/contentRender.js";
+import { getAllFolders, ifLocalStorageExist } from  "./localStorage.js";
 
 elementDOMForAppend.body.prepend(headerContainer);
-let prev;
+export let prev = {previousSelected: ''};
 let modalType;
 let latestElementToEdit;
 
@@ -27,7 +28,7 @@ const checkSrcType = function checkSrcTypeOnAction(src) {
     }
 };
 
-const checkSelectedFolder = function checkSelectedFolderOrMainLinks(selectedList) {
+export const checkSelectedFolder = function checkSelectedFolderOrMainLinks(selectedList) {
     if (selectedList.classList.contains('selected') && selectedList.classList.contains('todo')) {
         let selectedProjectListId = selectedList.id;
         elementDOMForAppend.content.textContent = '';
