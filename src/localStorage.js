@@ -7,11 +7,16 @@ import { getFolderSrc } from "./controller/projectController.js";
 import { getProjectSrc } from "./controller/taskController.js";
 
 let loadedNavMenu = [];
+let currentSelectedList;
 
 export const getAllFolders = function getAllFoldersDependingOnAction() {
   const currentCopyOfNavMenu = navMenu;
   localStorage.setItem('navMenu', JSON.stringify(currentCopyOfNavMenu));
-  const currentSelectedList = { "selected": document.querySelector('.selected').id };
+  if (document.querySelector('.selected')) {
+    currentSelectedList = { "selected": document.querySelector('.selected').id };
+  } else {
+    currentSelectedList = { "selected": 'Inbox' };
+  }
   localStorage.setItem('selectedList', JSON.stringify(currentSelectedList));
 };
 
