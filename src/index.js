@@ -195,3 +195,6 @@ elementDOMForAppend.content.addEventListener('keyup', (e) => {
     getAllFolders();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    ifLocalStorageExist();
+});
