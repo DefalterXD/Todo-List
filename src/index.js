@@ -203,6 +203,8 @@ elementDOMForAppend.content.addEventListener('click', (e) => {
 
 elementDOMForAppend.content.addEventListener('input', (e) => {
     changeStatus(e.target.closest('li').id, e.target.checked);
+    const currentSelectedProject = document.querySelector('.selected');
+    checkSelectedFolder(currentSelectedProject);
     getAllFolders();
 });
 
