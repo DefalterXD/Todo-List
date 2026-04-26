@@ -6,11 +6,11 @@ import { getProjectSrc, changeStatus, takeNewNoteInput } from "./controller/task
 import { headerContainer } from "./render/headerRender.js";
 import { elementDOMForAppend } from "./render/mediator.js";
 import { createContentHeader, renderExistingProjectTasks, createMainHeader, renderExistingMainTasks } from "./render/contentRender.js";
-import { getAllFolders, ifLocalStorageExist } from  "./localStorage.js";
+import { getAllFolders, ifLocalStorageExist } from "./localStorage.js";
 import { format, parse } from "date-fns";
 
 elementDOMForAppend.body.prepend(headerContainer);
-export let prev = {previousSelected: ''};
+export let prev = { previousSelected: '' };
 let modalType;
 let latestElementToEdit;
 
@@ -67,17 +67,31 @@ const sendDataToAdd = function sendDataToAddController(e) {
 };
 
 const populateFormEdit = function populateFormEditOnPickedTask(modal) {
-    const taskTitle = latestElementToEdit.querySelector('.task__title').firstChild.textContent;
-    const taskDesc = latestElementToEdit.querySelector('.task__desc').textContent;
-    const taskDate = format(parse(latestElementToEdit.querySelector('.task__date').textContent, "do MMMM y", new Date(2026, 0, 1)), "yyy-MM-dd");
-    const taskPriority = latestElementToEdit.querySelector('.task__priority').textContent;
-    const taskNote = latestElementToEdit.querySelector('textarea').value;
 
-    modal.querySelector('#projectTitle').value = taskTitle;
-    modal.querySelector('#projectDesc').value = taskDesc;
-    modal.querySelector('#projectDate').value = taskDate;
-    modal.querySelector('#prioritySelect').value = taskPriority;
-    modal.querySelector('#note').value = taskNote;
+    if (modal.id === 'folder') {
+        const folderTitle = latestElementToEdit.querySelector('.edit__folder').firstChild.textContent;
+        modal.querySelector('#folderTitle').value = folderTitle;
+    } else if (modal.id === 'project') {
+        const projectTitle = document.getElementById(`${latestElementToEdit.id}`).textContent;
+        const projectColor = getComputedStyle(document.getElementById(`${latestElementToEdit.id}`)).getPropertyValue('--marker-color');
+
+        modal.querySelector('#projectTitle').value = projectTitle;
+        modal.querySelector('#markerColor').value = projectColor;
+    } 
+    else if (modal.id === 'task') {
+
+        const taskTitle = latestElementToEdit.querySelector('.task__title').firstChild.textContent;
+        const taskDesc = latestElementToEdit.querySelector('.task__desc').textContent;
+        const taskDate = format(parse(latestElementToEdit.querySelector('.task__date').textContent, "do MMMM y", new Date(2026, 0, 1)), "yyy-MM-dd");
+        const taskPriority = latestElementToEdit.querySelector('.task__priority').textContent;
+        const taskNote = latestElementToEdit.querySelector('textarea').value;
+
+        modal.querySelector('#projectTitle').value = taskTitle;
+        modal.querySelector('#projectDesc').value = taskDesc;
+        modal.querySelector('#projectDate').value = taskDate;
+        modal.querySelector('#prioritySelect').value = taskPriority;
+        modal.querySelector('#note').value = taskNote;
+    }
 };
 
 const sendDataToEdit = function sendDataToEditController(e) {
@@ -106,8 +120,8 @@ const sendDataToRemove = function sendDataToRemoveController(e) {
     const modalType = activatedModal.id.charAt(0).toUpperCase() + activatedModal.id.slice(1);
     const currentSelectedProject = document.querySelector('.selected');
     removeCreatedElement(modalType, latestElementToEdit);
-    if (modalType === 'Folder' && (currentSelectedProject.id === 'Inbox' || currentSelectedProject.id === 'Today' 
-    || currentSelectedProject.id === 'Upcoming' || currentSelectedProject.id === 'Checklist')) {
+    if (modalType === 'Folder' && (currentSelectedProject.id === 'Inbox' || currentSelectedProject.id === 'Today'
+        || currentSelectedProject.id === 'Upcoming' || currentSelectedProject.id === 'Checklist')) {
         checkSelectedFolder(currentSelectedProject);
     }
     getAllFolders();
