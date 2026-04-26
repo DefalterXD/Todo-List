@@ -7,6 +7,7 @@ import { headerContainer } from "./render/headerRender.js";
 import { elementDOMForAppend } from "./render/mediator.js";
 import { createContentHeader, renderExistingProjectTasks, createMainHeader, renderExistingMainTasks } from "./render/contentRender.js";
 import { getAllFolders, ifLocalStorageExist } from  "./localStorage.js";
+import { format, parse } from "date-fns";
 
 elementDOMForAppend.body.prepend(headerContainer);
 export let prev = {previousSelected: ''};
@@ -65,6 +66,20 @@ const sendDataToAdd = function sendDataToAddController(e) {
     }
 };
 
+const populateFormEdit = function populateFormEditOnPickedTask(modal) {
+    const taskTitle = latestElementToEdit.querySelector('.task__title').firstChild.textContent;
+    const taskDesc = latestElementToEdit.querySelector('.task__desc').textContent;
+    const taskDate = format(parse(latestElementToEdit.querySelector('.task__date').textContent, "do MMMM y", new Date(2026, 0, 1)), "yyy-MM-dd");
+    const taskPriority = latestElementToEdit.querySelector('.task__priority').textContent;
+    const taskNote = latestElementToEdit.querySelector('textarea').value;
+
+    modal.querySelector('#projectTitle').value = taskTitle;
+    modal.querySelector('#projectDesc').value = taskDesc;
+    modal.querySelector('#projectDate').value = taskDate;
+    modal.querySelector('#prioritySelect').value = taskPriority;
+    modal.querySelector('#note').value = taskNote;
+};
+
 const sendDataToEdit = function sendDataToEditController(e) {
     e.preventDefault();
     const activatedModal = e.target.closest('dialog');
@@ -121,6 +136,7 @@ const activateModalEdit = function activateModalForEditOrDelete(modal) {
 
     const buttonEdit = modal.querySelector('.edit');
     if (buttonEdit !== null) {
+        populateFormEdit(modal);
         buttonEdit.addEventListener('click', sendDataToEdit);
     }
 
