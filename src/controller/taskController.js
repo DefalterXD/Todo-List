@@ -36,6 +36,7 @@ export const editTask = function editTaskProperties(targetTask, newTitle, newDes
     foundedTask.title = newTitle;
     foundedTask.desc = newDesc;
     foundedTask.dateToComplete = newDateToComplete;
+    foundedTask.previousPriority = newPriority;
     foundedTask.priority = newPriority;
     foundedTask.note = newNote;
 };
@@ -52,7 +53,16 @@ export const changeStatus = function changeStatusOfTheTask(taskId, changedTaskSt
     for (const folder of navMenu) {
         for (const project of folder.projects) {
             for (const task of project.tasks) {
-                if (task.id === taskId) task.status = changedTaskStatus;
+                if (task.status === true && task.priority !== 'done') {
+                    task.priority = task.priority;
+                    task.status = changedTaskStatus;
+                } else if (task.id === taskId && task.priority !== 'done') {
+                    task.priority = 'done';
+                    task.status = changedTaskStatus;
+                } else {
+                    task.priority = task.previousPriority;
+                    task.status = changedTaskStatus;
+                }
             }
         }
     }

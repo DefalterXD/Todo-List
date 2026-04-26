@@ -72,6 +72,7 @@ export class Task {
         this.desc = desc;
         this.dateToComplete = dateToComplete;
         this.priority = priority;
+        this.previousPriority = priority;
         this.note = note;
         this.id = id;
         this.status = false;
