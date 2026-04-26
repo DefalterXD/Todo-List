@@ -77,7 +77,7 @@ const populateFormEdit = function populateFormEditOnPickedTask(modal) {
 
         modal.querySelector('#projectTitle').value = projectTitle;
         modal.querySelector('#markerColor').value = projectColor;
-    } 
+    }
     else if (modal.id === 'task') {
 
         const taskTitle = latestElementToEdit.querySelector('.task__title').firstChild.textContent;
@@ -216,10 +216,12 @@ elementDOMForAppend.content.addEventListener('click', (e) => {
 });
 
 elementDOMForAppend.content.addEventListener('input', (e) => {
-    changeStatus(e.target.closest('li').id, e.target.checked);
-    const currentSelectedProject = document.querySelector('.selected');
-    if (e.target.type !== 'textarea') checkSelectedFolder(currentSelectedProject);
-    getAllFolders();
+    if (e.target.type !== 'textarea') {
+        changeStatus(e.target.closest('li').id, e.target.checked);
+        const currentSelectedProject = document.querySelector('.selected');
+        checkSelectedFolder(currentSelectedProject);
+        getAllFolders();
+    }
 });
 
 elementDOMForAppend.content.addEventListener('keyup', (e) => {
