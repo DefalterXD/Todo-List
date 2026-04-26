@@ -53,13 +53,13 @@ export const changeStatus = function changeStatusOfTheTask(taskId, changedTaskSt
     for (const folder of navMenu) {
         for (const project of folder.projects) {
             for (const task of project.tasks) {
-                if (task.status === true && task.priority !== 'done') {
+                if (task.id === taskId && task.status === true && task.priority !== 'done') {
                     task.priority = task.priority;
                     task.status = changedTaskStatus;
                 } else if (task.id === taskId && task.priority !== 'done') {
                     task.priority = 'done';
                     task.status = changedTaskStatus;
-                } else {
+                } else if (task.id === taskId) {
                     task.priority = task.previousPriority;
                     task.status = changedTaskStatus;
                 }
